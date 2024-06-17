@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="header.css">
+<title>AutoExpress</title>
+<style>
+    footer h2 {
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <h1 class="logo">Auto<span class="logo-accent">Express</span></h1>
+            </div>
+            <div class="search-container">
+                <form action="buscar_producto.php" method="POST">
+                    <input type="text" name="nombre_producto" placeholder="Buscar productos...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>    
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productosprincipales.php">Productos</a></li>
+                    <li><a href="login.php" class="sesion">Iniciar sesión</a></li>
+                    <li><a href="registro.php" class="sesion">Registrarse</a></li>
+                    <li><a href="ver_carrito.php" class="sesion">Ver carrito</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+            <section class="hero">
+                <img id="imagen-cambiante" src="../imagenes/coche.jpg">
+            </section>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>Atención al cliente</h3>
+                <p>Estamos aquí para ayudarte 24/7</p>
+            </div>
+            <div class="feature">
+                <i class="far fa-envelope"></i>
+                <h3>Envío 24/48h</h3>
+                <p>Entrega rápida y segura</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lock"></i>
+                <h3>Pago seguro</h3>
+                <p>Tus datos están protegidos</p>
+            </div>
+        </div>
+        <br>
+        <section class="categories">
+            <div class="category-item">
+                <img src="https://scdn.autoteiledirekt.de/catalog/categories/500x500/55.png" alt="Filtros y aceites">
+                <div class="category-content">
+                    <h3>Filtros y Aceites</h3>
+                    <p>Encuentra una amplia selección de filtros de aceite, filtros de aire y aceites de motor de alta calidad para mantener tu vehículo funcionando sin problemas. Nuestros productos garantizan una filtración eficiente y una lubricación óptima, prolongando la vida útil del motor y mejorando su rendimiento.</p>
+                    <form action="buscar_producto.php" method="POST">
+                        <input type="hidden" name="nombre_producto" value="filtro">
+                        <button type="submit">Comprar aquí</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="category-item">
+                <img src="https://noticias.coches.com/wp-content/uploads/2018/05/neumaticos-en-fila.jpg" alt="Neumáticos">
+                <div class="category-content">
+                    <h3>Neumáticos</h3>
+                    <p>Explora nuestra amplia gama de neumáticos para todas las estaciones y condiciones de conducción. Desde neumáticos de verano hasta neumáticos de invierno y todo terreno, tenemos las mejores opciones para tu coche. Garantiza una conducción segura y cómoda con neumáticos duraderos y de alta calidad.</p>
+                    <form action="buscar_producto.php" method="POST">
+                        <input type="hidden" name="nombre_producto" value="neumatico">
+                        <button type="submit">Comprar aquí</button>
+                    </form>
+                </div>
+            </div>
+            <div class="category-item">
+                <img src="https://centralderepuestostr.com/wp-content/uploads/2018/01/brake-pads.jpg" alt="Pastillas de freno">
+                <div class="category-content">
+                    <h3>Pastillas de Freno</h3>
+                    <p>Mejora la seguridad de tu vehículo con nuestras pastillas de freno de primera calidad. Diseñadas para proporcionar un frenado suave y potente en cualquier situación, nuestras pastillas de freno ofrecen un rendimiento excepcional y una larga vida útil. Conduce con confianza y tranquilidad sabiendo que tus frenos están en óptimas condiciones.</p>
+                    <form action="buscar_producto.php" method="POST">
+                        <input type="hidden" name="nombre_producto" value="freno">
+                        <button type="submit">Comprar aquí</button>
+                    </form>
+                </div>
+            </div>
+            <div class="category-item">
+                <img src="https://unitrailer.es/hpeciai/e096caa3ecf853317b4882af40099b1e/spa_pm_Bombillas-para-coche-H7-24-volt-fusibles-CONJUNTO-30-unidades-4337_1.jpg" alt="Bombillas">
+                <div class="category-content">
+                    <h3>Bombillas</h3>
+                    <p>Mejora la visibilidad y la seguridad en la carretera con nuestras bombillas de alta calidad. Desde bombillas halógenas hasta bombillas LED, ofrecemos una amplia variedad de opciones para adaptarse a tus necesidades. Ilumina tu camino con claridad y confianza con nuestras bombillas fiables y duraderas.</p>
+                    <form action="buscar_producto.php" method="POST">
+                        <input type="hidden" name="nombre_producto" value="bombilla">
+                        <button type="submit">Comprar aquí</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <br><br>
+    <footer>
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section about">
+              <h2>Acerca de Nosotros</h2>
+              <p>Somos una empresa comprometida con la excelencia y la satisfacción del cliente.</p>
+              <div class="contact">
+                <span><i class="fas fa-envelope"></i> contacto@empresa.com</span>
+                <span><i class="fas fa-phone"></i> +123 456 789</span>
+              </div>
+            </div>
+            <div class="footer-section links">
+              <h2>Enlaces Rápidos</h2>
+              <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
+              </ul>
+            </div>
+            <div class="footer-section contact-form">
+              <h2>Contacto</h2>
+              </form>
+              <form action="mailto:mariojuradoayuso@jerezycaballero.es" method="post" enctype="text/plain">
+                <!-- <label for="name">Tu nombre:</label><br> -->
+                <input type="text" class="text-input contact-input" id="name" name="name" placeholder="Tu nombre y apellidos" required>
+                <!-- <label for="email">Tu email:</label><br> -->
+                <input type="email" class="text-input contact-input" id="email" name="email" placeholder="Tu email" required>
+                <!-- <label for="message">Mensaje:</label><br> -->
+                <textarea id="message" name="message" rows="4" cols="50" placeholder="Tu mensaje" required></textarea>
+                <button type="submit" class="btn btn-big contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Enviar
+                  </button>
+            </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; 2024 AutoExpress | Todos los derechos reservados
+        </div>
+      </footer>
+    
+    <script src="scripts.js" defer></script>
+</body>
+</html>

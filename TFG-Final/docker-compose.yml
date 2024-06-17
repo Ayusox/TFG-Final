@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  # Apache web service with PHP support
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/var/www/html
+
+  mysql:
+    image: mysql:latest
+    container_name: mydatabase
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: tiendadb
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database/tienda.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:  
+      - "3306:3306"
+
+  # Database administrator service
+  databaseadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: user_name
+      PMA_PASSWORD: user_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+  # Tunneling service
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    depends_on:
+      - web
+    network_mode: "host"  # Fix connectivity issue 
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    ports:
+      - 4040:4040
+
+volumes:
+  mysql-data:
